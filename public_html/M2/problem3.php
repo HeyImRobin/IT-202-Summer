@@ -11,6 +11,27 @@ function bePositive($arr) {
 
 }
 echo "Problem 3: Be Positive<br>";
+for($i=0; $i < $a1; $i++)
+{ 
+    echo (abs($a1[$i])) . "<br>" ;
+}
+
+for($i=0; $i < $a2; $i++)
+{ 
+    echo (abs($a2[$i])) . "<br>" ;
+}
+
+for($i=0; $i < $a3; $i++)
+{ 
+    echo (abs($a3[$i])) . "<br>" ;
+}
+
+for($i=0; $i < $a4; $i++)
+{ 
+    echo (abs($a4[$i])) . "<br>" ;
+}
+
+
 ?>
 <table>
     <thread>
