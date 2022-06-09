@@ -13,11 +13,11 @@ function getTotal($arr) {
 echo "Problem 2: Adding Floats<br>";
 
 
- $total= $a1[0]+ $a1[2];
+ $total= $a1[0]+ $a1[6];
  var_dump(round($total))
 
 
- 
+
 ?>
 <table>
     <thread>

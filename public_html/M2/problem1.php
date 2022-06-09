@@ -11,13 +11,43 @@ function processArray($arr) {
 
 }
 echo "Problem 1: Odd Output<br>";
-for($i=0; $i < $a1; $i++)
+foreach ($a1 as $i)
+{ 
+	 if(($i % 2) != 0)
+     {
+    echo $i . "<br>" ;
+}
+
+foreach ($a2 as $i)
 { 
 	 if(($i % 2) != 0)
      {
     echo $i . "<br>" ;
 }
 }
+
+foreach ($a3 as $i)
+{ 
+	 if(($i % 2) != 0)
+     {
+    echo $i . "<br>" ;
+}
+}
+
+foreach ($a4 as $i)
+{ 
+	 if(($i % 2) != 0)
+     {
+    echo $i . "<br>" ;
+}
+}
+
+
+
+
+
+}
+
 ?>
 <table>
     <thread>
