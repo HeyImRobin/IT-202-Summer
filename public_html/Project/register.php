@@ -3,6 +3,10 @@ require_once(__DIR__ . "/../../partials/nav.php");
 ?>
 <form onsubmit="return validate(this)" method="POST">
     <div>
+        <label for="username">Username</label>
+        <input type="text" name="username" required maxlength= "30" />
+    </div>
+    <div>
         <label for="email">Email</label>
         <input type="email" name="email" required />
     </div>
@@ -20,16 +24,18 @@ require_once(__DIR__ . "/../../partials/nav.php");
     function validate(form) {
         //TODO 1: implement JavaScript validation
         //ensure it returns false for an error and true for success
-
+ 
         return true;
     }
 </script>
 <?php
 //TODO 2: add PHP Code
-if (isset($_POST["email"]) && isset($_POST["password"]) && isset($_POST["confirm"])) {
+if (isset($_POST["email"]) && isset($_POST["password"]) && isset($_POST["confirm"]) && isset($_POST["username"])) {
     $email = se($_POST, "email", "", false);
     $password = se($_POST, "password", "", false);
     $confirm = se( $_POST,"confirm","",false);
+ 
+    $username = se( $_POST,"username","",false);
     //TODO 3
     $hasError = false;
     if (empty($email)) {
@@ -46,6 +52,11 @@ if (isset($_POST["email"]) && isset($_POST["password"]) && isset($_POST["confirm
     } */
     if(!is_valid_email($email)){
         flash("Invalid email address");
+        $hasError = true;
+    }
+ 
+    if(!preg_match('/^[a-z0-9_-]{3,30}$/', $username)) {
+        flash("Username must only contain lower case letters, numbers, hyphen and/or underscores and be between 3-30 characters ");
         $hasError = true;
     }
     if (empty($password)) {
@@ -71,9 +82,9 @@ if (isset($_POST["email"]) && isset($_POST["password"]) && isset($_POST["confirm
     flash("Welcome, $email");
     $hash = password_hash($password, PASSWORD_BCRYPT);
     $db = getDB();
-    $stmt = $db->prepare(" INSERT INTO Users(email, password) VALUES (:email, :password)");
+    $stmt = $db->prepare(" INSERT INTO Users(email, password, username) VALUES (:email, :password, :username)");
     try{
-        $r = $stmt->execute([":email" => $email, ":password"=> $hash]);
+        $r = $stmt->execute([":email" => $email, ":password"=> $hash, ":username" => $username]);
         flash(" Succesfully registered!");
     }
     catch(Exception $e) {
@@ -83,4 +94,5 @@ if (isset($_POST["email"]) && isset($_POST["password"]) && isset($_POST["confirm
 }
  }
 ?>
-<?php require_once(__DIR__ ."/../../partials/flash.php");
+<?php require_once(__DIR__ . "/../../partials/flash.php");
+
