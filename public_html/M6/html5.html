@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-
+ 
 <html>
     <canvas id="canvas" width="600" height="400" tabindex="1"></canvas>
 </html>
-
+ 
 <script>
+
 // Collect The Square game
 
 // Get a reference to the canvas DOM element
@@ -31,22 +32,6 @@ var left = false;
 var targetX = 0;
 var targetY = 0;
 var targetLength = 25;
-
-
-//Maybe this 
-
-/*if(right.arrow == pressed){
-Math.add(this.position.targetX + 10);    
-}    
-    
-if(left.arrow == pressed){
-    Math.sub(this.position.targetY - 10);
-}
-
-*/
-
-
-
 
 // Determine if number a is within the range b to c (exclusive)
 function isWithin(a, b, c) {
@@ -120,7 +105,6 @@ function startGame() {
   // Put the target at a random starting point
 	moveTarget();
   // Kick off the draw loop
- targetChase();                             //Here
   draw();
 }
 
@@ -139,15 +123,8 @@ function endGame() {
 // Move the target square to a random position
 function moveTarget() {
   targetX = Math.round(Math.random() * canvas.width - targetLength);
-  targetY = Math.round(Math.random() * canvas.height - targetLength);
- }
-
-
-function targetChase() {
- targetXspeed = canvas.width - targetLength;
- targetYspeed = canvas.height - targetLength;
-
- }
+  targetY = Math.round(Math.random() * canvas.height - targetLength)
+}
 
 // Clear the canvas
 function erase() {
@@ -189,16 +166,10 @@ function draw() {
     if (isWithin(targetY, y, y + sideLength) || isWithin(targetY + targetLength, y, y + sideLength)) { // Y
       // Respawn the target
       moveTarget();
-
-
-      targetChase(); 
       // Increase the score
       score++;
     }
   }
-
-
-
   // Draw the square
   context.fillStyle = '#FF0000';
   context.fillRect(x, y, sideLength, sideLength);
@@ -222,4 +193,5 @@ function draw() {
 // Start the game
 menu();
 canvas.focus();
+
 </script>
