@@ -90,7 +90,8 @@ function menu() {
   context.fillText('Click to Start', canvas.width / 2, canvas.height / 2);
   context.fillText('To make it slightly more challenging', canvas.width / 2, (canvas.height / 4) * 2.3);
   context.fillText('squares will be moving and will be harder to see', canvas.width / 2, (canvas.height / 4) * 2.5);
-
+// rl382
+//7/23/22
   context.font = '18px Arial'
   context.fillText('Use the arrow keys to move', canvas.width / 2, (canvas.height / 4) * 3);
   // Start the game on a click
@@ -155,6 +156,8 @@ function draw() {
     x -= speed;
     targetX -= speed / 2;
   }
+  //rl382
+  // 7/23/22
 
 
   // Keep the square within the bounds
@@ -184,6 +187,8 @@ function draw() {
   if (targetX + targetLength > canvas.width) {
     targetX = canvas.width - targetLength;
   }
+  // rl382
+  //7/23/22
 
 
 
@@ -202,6 +207,8 @@ function draw() {
   context.fillRect(x, y, sideLength, sideLength);
   // Draw the target 
   context.fillStyle = 'rgba(0,255,0,0.04)';
+  //rl382
+  //7/23/22
   context.fillRect(targetX, targetY, targetLength, targetLength);
   // Draw the score and time remaining
   context.fillStyle = '#000000';
