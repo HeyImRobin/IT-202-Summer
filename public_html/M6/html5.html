@@ -88,6 +88,9 @@ function menu() {
   context.fillText('Collect the Square!', canvas.width / 2, canvas.height / 4);
   context.font = '24px Arial';
   context.fillText('Click to Start', canvas.width / 2, canvas.height / 2);
+  context.fillText('To make it slightly more challenging', canvas.width / 2, (canvas.height / 4) * 2.3);
+  context.fillText('squares will be moving and will be harder to see', canvas.width / 2, (canvas.height / 4) * 2.5);
+
   context.font = '18px Arial'
   context.fillText('Use the arrow keys to move', canvas.width / 2, (canvas.height / 4) * 3);
   // Start the game on a click
@@ -138,16 +141,22 @@ function draw() {
   // Move the square
   if (down) {
     y += speed;
+    targetY += speed / 2;
   }
   if (up) {
     y -= speed;
+    targetY -= speed / 2;
   }
   if (right) {
     x += speed;
+    targetX += speed / 2;
   }
   if (left) {
     x -= speed;
+    targetX -= speed / 2;
   }
+
+
   // Keep the square within the bounds
   if (y + sideLength > canvas.height) {
     y = canvas.height - sideLength;
@@ -161,6 +170,24 @@ function draw() {
   if (x + sideLength > canvas.width) {
     x = canvas.width - sideLength;
   }
+
+
+  if (targetY + targetLength > canvas.height) {
+    targetY = canvas.height - targetLength;
+  }
+  if (targetY < 0) {
+    targetY = 0;
+  }
+  if (targetX < 0) {
+    targetX = 0;
+  }
+  if (targetX + targetLength > canvas.width) {
+    targetX = canvas.width - targetLength;
+  }
+
+
+
+
   // Collide with the target
   if (isWithin(targetX, x, x + sideLength) || isWithin(targetX + targetLength, x, x + sideLength)) { // X
     if (isWithin(targetY, y, y + sideLength) || isWithin(targetY + targetLength, y, y + sideLength)) { // Y
@@ -174,7 +201,7 @@ function draw() {
   context.fillStyle = '#FF0000';
   context.fillRect(x, y, sideLength, sideLength);
   // Draw the target 
-  context.fillStyle = '#00FF00';
+  context.fillStyle = 'rgba(0,255,0,0.04)';
   context.fillRect(targetX, targetY, targetLength, targetLength);
   // Draw the score and time remaining
   context.fillStyle = '#000000';
