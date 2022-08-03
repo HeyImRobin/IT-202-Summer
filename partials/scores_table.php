@@ -32,6 +32,8 @@ switch ($duration) {
     default:
         $title = "Invalid Scoreboard";
         break;
+        //rl382
+        //8/1/2022
 }
 ?>
 
