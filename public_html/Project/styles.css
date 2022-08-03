@@ -11,13 +11,13 @@
 }
 
 .alert-info {
-    background-color: yellowgreen;
+    background-color: red;
 }
 nav li{display: inline; background-color: lightgoldenrodyellow;}
 nav li a{color: darkorange}
 input{border-radius: 1%;}
 body{
     background-color: lightgray;
-    color: rgb(254, 254, 254);
+    color: rgb(0, 0, 0);
 
 }
