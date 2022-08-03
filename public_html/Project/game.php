@@ -223,7 +223,8 @@ function endGame() {
   context.fillStyle = '#000000';
   context.font = '24px Arial';
   context.textAlign = 'center';
-  context.fillText('Final Score: ' + score, canvas.width / 2, canvas.height / 2);
+  context.fillText('Final Score: ' + score, canvas.width / 2, canvas.height / 3);
+  context.fillText('Your Score Has Been Saved ', canvas.width / 2, canvas.height / 2);
   postData({score:score}, "/Project/api/save_score.php");
 
 
