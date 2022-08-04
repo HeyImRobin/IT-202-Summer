@@ -11,7 +11,7 @@
 }
 
 .alert-info {
-    background-color: yellowgreen;
+    background-color: red;
 }
 nav li{display: inline; background-color: lightgoldenrodyellow;}
 nav li a{color: darkorange}
