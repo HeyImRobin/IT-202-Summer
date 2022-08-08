@@ -24,4 +24,8 @@ require(__DIR__ . "/duplicate_user_details.php");
 require(__DIR__ . "/reset_session.php");
 
 require(__DIR__ . "/get_url.php");
+
+require(__DIR__ . "/account_helpers.php");
+
+require(__DIR__ . "/redirect.php");
 ?>
