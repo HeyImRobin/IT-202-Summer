@@ -7,4 +7,9 @@ CREATE TABLE Arcade_UserComps(
     unique key(user_id, competition_id),
     FOREIGN KEY (user_id) REFERENCES Users(id),
     FOREIGN KEY (competition_id) REFERENCES Arcade_Comps(id)
+
+
+
+
+    
 )
