@@ -12,12 +12,7 @@ function join_competition($comp_id, $user_id, $cost)
                 if ($r) {
                     $cost = (int)se($r, "join_cost", 0, false);
                     $name = se($r, "title", "", false);
-                }
-            }
-        }       
-        }
-}
-              /*      if ($balance >= $cost) {
+                    if ($balance >= $cost) {
                         if (give_gems($cost, "join-comp", get_user_account_id(), -1, "Joining competition $name")) {
                             if (add_to_competition($comp_id, $user_id)) {
                                 flash("Successfully joined $name", "success");
